@@ -1,0 +1,10 @@
+Analyzing resume...                                             
+
+  error - Undefined name 'GoogleFonts' - lib\sections\experience_section.dart:25:28 - undefined_identifier
+  error - Undefined name 'GoogleFonts' - lib\sections\experience_section.dart:91:34 - undefined_identifier
+  error - Undefined name 'GoogleFonts' - lib\sections\experience_section.dart:106:34 - undefined_identifier
+  error - Undefined name 'GoogleFonts' - lib\sections\experience_section.dart:118:28 - undefined_identifier
+  error - Undefined name 'GoogleFonts' - lib\sections\experience_section.dart:127:28 - undefined_identifier
+warning - Unused import: '../widgets/responsive_layout.dart' - lib\sections\skills_section.dart:6:8 - unused_import
+  error - The name 'ResumeApp' isn't a class - test\widget_test.dart:16:35 - creation_with_non_type
+

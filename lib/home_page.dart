@@ -1,3 +1,4 @@
+import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'core/app_theme.dart';
@@ -38,53 +39,66 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppTheme.background,
-      appBar: AppBar(
-        title: Text(
-          "Aflah Shadil",
-          style: GoogleFonts.poppins(fontWeight: FontWeight.bold),
-        ),
-        backgroundColor: AppTheme.background,
-        elevation: 0,
-        actions: [
-          if (MediaQuery.of(context).size.width > 600) ...[
-            _NavBarItem("About", () => _scrollToSection(_aboutKey)),
-            _NavBarItem("Skills", () => _scrollToSection(_skillsKey)),
-            _NavBarItem("Projects", () => _scrollToSection(_projectsKey)),
-            _NavBarItem("Experience", () => _scrollToSection(_experienceKey)),
-            _NavBarItem("Contact", () => _scrollToSection(_contactKey)),
-            const SizedBox(width: 24),
-          ] else ...[
-            // Mobile Menu
-            PopupMenuButton<String>(
-              onSelected: (value) {
-                switch (value) {
-                  case 'About':
-                    _scrollToSection(_aboutKey);
-                    break;
-                  case 'Skills':
-                    _scrollToSection(_skillsKey);
-                    break;
-                  case 'Projects':
-                    _scrollToSection(_projectsKey);
-                    break;
-                  case 'Experience':
-                    _scrollToSection(_experienceKey);
-                    break;
-                  case 'Contact':
-                    _scrollToSection(_contactKey);
-                    break;
-                }
-              },
-              itemBuilder: (context) => [
-                const PopupMenuItem(value: 'About', child: Text('About')),
-                const PopupMenuItem(value: 'Skills', child: Text('Skills')),
-                const PopupMenuItem(value: 'Projects', child: Text('Projects')),
-                const PopupMenuItem(value: 'Experience', child: Text('Experience')),
-                const PopupMenuItem(value: 'Contact', child: Text('Contact')),
-              ],
+      extendBodyBehindAppBar: true,
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(70),
+        child: Container(
+          margin: const EdgeInsets.all(16),
+          decoration: BoxDecoration(
+            color: AppTheme.background.withValues(alpha: 0.7),
+            borderRadius: BorderRadius.circular(16),
+            border: Border.all(color: Colors.white.withValues(alpha: 0.1)),
+          ),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(16),
+            child: BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+              child: AppBar(
+                backgroundColor: Colors.transparent,
+                elevation: 0,
+                title: Text(
+                  "Aflah Shadil",
+                  style: GoogleFonts.outfit(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 22,
+                    letterSpacing: 1.2,
+                  ),
+                ),
+                actions: [
+                  if (MediaQuery.of(context).size.width > 800) ...[
+                    _NavBarItem("About", () => _scrollToSection(_aboutKey)),
+                    _NavBarItem("Skills", () => _scrollToSection(_skillsKey)),
+                    _NavBarItem("Projects", () => _scrollToSection(_projectsKey)),
+                    _NavBarItem("Experience", () => _scrollToSection(_experienceKey)),
+                    _NavBarItem("Contact", () => _scrollToSection(_contactKey)),
+                    const SizedBox(width: 16),
+                  ] else ...[
+                    // Mobile Menu
+                    PopupMenuButton<String>(
+                      icon: const Icon(Icons.menu_rounded),
+                      onSelected: (value) {
+                        switch (value) {
+                          case 'About': _scrollToSection(_aboutKey); break;
+                          case 'Skills': _scrollToSection(_skillsKey); break;
+                          case 'Projects': _scrollToSection(_projectsKey); break;
+                          case 'Experience': _scrollToSection(_experienceKey); break;
+                          case 'Contact': _scrollToSection(_contactKey); break;
+                        }
+                      },
+                      itemBuilder: (context) => [
+                        const PopupMenuItem(value: 'About', child: Text('About')),
+                        const PopupMenuItem(value: 'Skills', child: Text('Skills')),
+                        const PopupMenuItem(value: 'Projects', child: Text('Projects')),
+                        const PopupMenuItem(value: 'Experience', child: Text('Experience')),
+                        const PopupMenuItem(value: 'Contact', child: Text('Contact')),
+                      ],
+                    ),
+                  ],
+                ],
+              ),
             ),
-          ],
-        ],
+          ),
+        ),
       ),
       body: SingleChildScrollView(
         controller: _scrollController,
@@ -98,7 +112,7 @@ class _HomePageState extends State<HomePage> {
             SkillsSection(key: _skillsKey),
             ProjectsSection(key: _projectsKey),
             ExperienceSection(key: _experienceKey),
-            const WhyHireMeSection(),
+            WhyHireMeSection(),
             ContactSection(key: _contactKey),
           ],
         ),
@@ -115,13 +129,16 @@ class _NavBarItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextButton(
-      onPressed: onTap,
-      child: Text(
-        title,
-        style: GoogleFonts.inter(
-          color: Colors.white,
-          fontWeight: FontWeight.w500,
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 4),
+      child: TextButton(
+        onPressed: onTap,
+        child: Text(
+          title,
+          style: GoogleFonts.outfit(
+            color: Colors.white.withValues(alpha: 0.9),
+            fontWeight: FontWeight.w500,
+          ),
         ),
       ),
     );

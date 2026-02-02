@@ -13,7 +13,7 @@ class AppConstants {
   static const String phone = "+91 94975 02934"; // Placeholder
   static const String location = "Kerala, India";
   static const String github = "https://github.com/AflahShadilk"; // Placeholder
-  static const String linkedin = "www.linkedin.com/in/shadil-223814248"; // Placeholder
+  static const String linkedin = "https://www.linkedin.com/in/shadil-223814248"; // Placeholder
 
   // Social Links
   static const List<Map<String, String>> socialLinks = [
