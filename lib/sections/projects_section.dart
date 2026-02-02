@@ -71,14 +71,14 @@ class ProjectsSection extends StatelessWidget {
       {
         "title": "Arogya Mate",
         "description": "Offline-first healthcare management system with robust local storage, patient-doctor workflows, and appointment scheduling.",
-        "techStack": ["Flutter", "Hive", "Local Storage", "Clean Arch"],
+        "techStack": ["Flutter", "Hive", "Local Storage", ],
         "imagePath": "assets/appicon (2).png",
         "codeUrl": "https://github.com/AflahShadilk/Arogyamate-project",
       },
       {
         "title": "Rizq Mart",
         "description": "Full-stack e-commerce platform with admin/user apps, secure authentication, and real-time inventory management.",
-        "techStack": ["Flutter", "Firebase", "Stripe", "Cloud Func"],
+        "techStack": ["Flutter", "Firebase", "Stripe", "Cloud Func","Clean Arch"],
         "imagePath": "assets/appIcon.png",
         "codeUrl": "https://github.com/AflahShadilk/rizqmart_app",
       },

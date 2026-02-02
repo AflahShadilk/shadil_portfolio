@@ -81,7 +81,7 @@ class AboutSection extends StatelessWidget {
       alignment: WrapAlignment.center,
       children: [
         _buildStatItem("1+", "Years Experience"),
-        _buildStatItem("10+", "Projects Completed"),
+        _buildStatItem("3+", "Projects Completed"),
         _buildStatItem("5+", "Tech Stacks"),
       ],
     );

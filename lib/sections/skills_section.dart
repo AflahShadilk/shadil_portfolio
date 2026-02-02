@@ -96,7 +96,7 @@ class SkillsSection extends StatelessWidget {
                   ),
                   SkillCard(
                     icon: Icons.bolt_rounded,
-                    title: "State Mgmt",
+                    title: "State Mngmt",
                     category: "Bloc / Provider",
                   ),
                 ],
